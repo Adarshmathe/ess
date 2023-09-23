@@ -1,0 +1,29 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  #grad{
+    /* background-image: linear-gradient( #f5f5f5 90%, rgb(7, 7, 6) 10%);   */
+    background-image: linear-gradient( #f5f5f5 90%, #4682B4 10%);  
+
+  }
+  .logo{
+    margin-left: 15px;
+  }
+
+  @media screen and (max-width: 400px){
+    
+    .logo {
+      display: none;
+    }
+  }
+
+  a {
+    color: unset !important;
+    text-decoration: none !important;
+
+  }
+
+  span{
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }

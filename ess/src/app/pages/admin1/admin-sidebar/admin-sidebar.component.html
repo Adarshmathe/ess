@@ -1,0 +1,232 @@
+
+<!-- <app-navbar></app-navbar> -->
+<div style="position: relative;">
+  <div class="sidebar" [ngClass]="{ 'expanded': isExpanded }">
+    <div class="header">
+      <h1 class="title">
+        Menu
+      </h1>
+      <div class="toggle" (click)="handleSidebarToggle()">
+        <span class="chevron"></span>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="link">
+        <div class="content" [routerLink]="['/home']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">
+
+            <div class="icon">
+                <mat-icon mat-list-icon>dashboard</mat-icon>
+            </div>
+            <div class="title">Dashboard</div>
+        </div>
+      </div>
+
+      <div class="link">
+        <div class="content" [routerLink]="['/home/org-Tree']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">
+
+            <div class="icon">
+                <mat-icon mat-list-icon>business</mat-icon>
+            </div>
+            <div class="title">ORG Tree</div>
+        </div>
+      </div>
+
+      <div class="link" *ngIf="menuPermissionClass.isProfilePermission">
+        <div class="content" [routerLink]="['/home/profile']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">
+
+            <div class="icon">
+                <mat-icon mat-list-icon>perm_identity</mat-icon>
+            </div>
+            <div class="title">Profile</div>
+        </div>
+      </div>
+      
+      <div class="link with-children" *ngIf="menuPermissionClass.isUserManagementPermission">
+        <div class="content" >
+            <div class="icon">
+                <mat-icon mat-list-icon>supervisor_account</mat-icon>
+            </div>
+            <div class="title"  (click)="toggle[1] = !toggle[1]" >User management</div>
+            <mat-icon class="icon" *ngIf="!toggle[1]" (click)="toggle[1] = !toggle[1]">expand_more</mat-icon>
+            <mat-icon class="icon" *ngIf="toggle[1]" (click)="toggle[1] = !toggle[1]">expand_less</mat-icon>
+        </div>
+        <div class="children" [hidden]="!toggle[1]">
+          <div class="link" *ngIf="menuPermissionClass.UserManagementPermission.role">
+            <div class="content" [routerLink]="['/home','usermanagement','role']" 
+              [routerLinkActive]="'active'">
+              <div class="icon">
+                <mat-icon mat-list-icon>settings </mat-icon>
+              </div>
+
+              <div class="title">Roles</div>
+            </div>
+          </div>
+          <div class="link" *ngIf="menuPermissionClass.UserManagementPermission.user">
+            <div class="content" [routerLink]="['/home','usermanagement','user']" 
+              [routerLinkActive]="'active'">
+              <div class="icon">
+                <mat-icon mat-list-icon>settings </mat-icon>
+              </div>
+
+              <div class="title">Users</div>
+            </div>
+          </div>
+          <div class="link" *ngIf="menuPermissionClass.UserManagementPermission.permission">
+            <div class="content" [routerLink]="['/home','usermanagement','permission']" 
+              [routerLinkActive]="'active'">
+              <div class="icon">
+                <mat-icon mat-list-icon>security</mat-icon>
+              </div>
+              <div class="title">Permissions</div>
+            </div>
+          </div>
+          <!-- <div class="link">
+            <div class="content" [routerLink]="['/usermanagement']" [queryParams]="{ 'child': '3' }"
+              [routerLinkActive]="'active'">
+              <div class="title">child 3</div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- <div class="link with-children">
+        <div class="content" >
+            <div class="icon">
+                <mat-icon mat-list-icon>account_balance</mat-icon>
+            </div>
+            <div class="title" (click)="toggle1[1] = !toggle1[1]">IT</div>
+            <mat-icon class="icon" *ngIf="!toggle1[1]" (click)="toggle1[1] = !toggle1[1]">expand_more</mat-icon>
+            <mat-icon class="icon" *ngIf="toggle1[1]" (click)="toggle1[1] = !toggle1[1]">expand_less</mat-icon>
+        </div>
+        <div class="children" [hidden]="!toggle1[1]">
+          <div class="link">
+            <div class="content" [routerLink]="['/home','IT','upload']" 
+              [routerLinkActive]="'active'">
+              <div class="title">Upload Document</div>
+            </div>
+          </div>
+          <div class="link">
+            <div class="content" [routerLink]="['/home','IT','view']" 
+              [routerLinkActive]="'active'">
+              <div class="title">View Document</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="link with-children">
+        <div class="content" >
+            <div class="icon">
+                <mat-icon mat-list-icon>account_balance</mat-icon>
+            </div>
+            <div class="title" (click)="toggle2[1] = !toggle2[1]">HR</div>
+            <mat-icon class="icon" *ngIf="!toggle2[1]" (click)="toggle2[1] = !toggle2[1]">expand_more</mat-icon>
+            <mat-icon class="icon" *ngIf="toggle2[1]" (click)="toggle2[1] = !toggle2[1]">expand_less</mat-icon>
+        </div>
+        <div class="children" [hidden]="!toggle2[1]">
+          <div class="link">
+            <div class="content" [routerLink]="['/home','HR','upload']" 
+              [routerLinkActive]="'active'">
+              <div class="title">Upload Document</div>
+            </div>
+          </div>
+          <div class="link">
+            <div class="content" [routerLink]="['/home','HR','view']" 
+              [routerLinkActive]="'active'">
+              <div class="title">View Document</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- ////////// -->
+
+      <div class="link with-children" *ngIf="menuPermissionClass.isCircularPermission">
+        <div class="content">
+            <div class="icon">
+                <mat-icon mat-list-icon>notification_important</mat-icon>
+            </div>
+            <div class="title" (click)="toggle3[1] = !toggle3[1]">Circular</div>
+            <mat-icon class="icon" *ngIf="!toggle3[1]" (click)="toggle3[1] = !toggle3[1]">expand_more</mat-icon>
+            <mat-icon class="icon" *ngIf="toggle3[1]" (click)="toggle3[1] = !toggle3[1]">expand_less</mat-icon>
+        </div>
+        <div class="children" [hidden]="!toggle3[1]">
+          <div class="link">
+            <div class="content" >
+              <div class="icon">
+                <mat-icon mat-list-icon>storage </mat-icon>
+            </div>
+              <div class="title" (click)="toggle31[1] = !toggle31[1]">IT</div>
+              <mat-icon class="icon" *ngIf="!toggle31[1]" (click)="toggle31[1] = !toggle31[1]">expand_more</mat-icon>
+            <mat-icon class="icon" *ngIf="toggle31[1]" (click)="toggle31[1] = !toggle31[1]">expand_less</mat-icon>
+            </div>
+            
+          </div> 
+          <div class="children" [hidden]="!toggle31[1]">
+            <div class="link" *ngIf="menuPermissionClass.ItPermission.upload">
+              <div class="content" [routerLink]="['/home','circular','IT','upload']" 
+                [routerLinkActive]="'active'">
+                <div class="icon">
+                  <mat-icon mat-list-icon>insert_drive_file </mat-icon>
+              </div>
+                <div class="title">Upload Document</div>
+              </div>
+            </div>
+            <div class="link" *ngIf="menuPermissionClass.ItPermission.view">
+              <div class="content" [routerLink]="['/home','circular','IT','view']" 
+                [routerLinkActive]="'active'">
+                <div class="icon">
+                  <mat-icon mat-list-icon>insert_drive_file </mat-icon>
+              </div>
+                <div class="title">View Document</div>
+              </div>
+            </div>
+          </div>
+          <div class="link">
+            <div class="content" >
+              <div class="icon">
+                <mat-icon mat-list-icon>storage </mat-icon>
+              </div>
+
+              <div class="title" (click)="toggle32[1] = !toggle32[1]">HR</div>
+              <mat-icon class="icon" *ngIf="!toggle32[1]" (click)="toggle32[1] = !toggle32[1]">expand_more</mat-icon>
+            <mat-icon class="icon" *ngIf="toggle32[1]" (click)="toggle32[1] = !toggle32[1]">expand_less</mat-icon>
+            </div>
+          </div>
+          <div class="children" [hidden]="!toggle32[1]">
+            <div class="link" *ngIf="menuPermissionClass.HrPermission.upload">
+              <div class="content" [routerLink]="['/home','circular','HR','upload']" 
+                [routerLinkActive]="'active'">
+                <div class="icon">
+                  <mat-icon mat-list-icon>insert_drive_file </mat-icon>
+              </div>
+                <div class="title">Upload Document</div>
+              </div>
+            </div>
+            <div class="link" *ngIf="menuPermissionClass.HrPermission.view">
+              <div class="content" [routerLink]="['/home','circular','HR','view']" 
+                [routerLinkActive]="'active'">
+                <div class="icon">
+                  <mat-icon mat-list-icon>insert_drive_file </mat-icon>
+              </div>
+                <div class="title">View Document</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+     
+
+    </div>
+    <div class="footer"></div>
+  </div>
+</div>
+
+
+  
+  
+

@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <mat-card class="mt-3">
+
+        <!-- <p>{{personal.value | json}}</p> -->
+
+        <h2 class="headertitle">Search Role</h2>
+        <div class="body mt-2">
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="inputState" class="form-label">Role Name</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-2 s">
+                        <button type="button" class="btn btn-primary"
+                            [routerLink]="['/home','usermanagement','create-role']"><i
+                                class="fa fa-plus"></i></button>
+                    </div>
+
+                </div>
+            </form>
+            <div class="example-container mat-elevation-z8 mt-4">
+                <mat-table #table [dataSource]="dataSource" matSort class="demo-table">
+        
+                    <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> SNO. </mat-header-cell>
+                        <mat-cell *matCellDef="let index = index">{{index +1}} </mat-cell>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="roleName">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Role Name </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.roleName}}</mat-cell>
+                    </ng-container>
+        
+        
+                    <ng-container matColumnDef="status">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.status ? 'Active' : 'Inactive'}} </mat-cell>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="CreatedOn">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Created On</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.createdOn | date: 'dd/MM/yyyy'}}</mat-cell>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="projectGear">
+                        <mat-header-cell *matHeaderCellDef>
+                            <mat-icon>settings</mat-icon>
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            <mat-icon [matMenuTriggerFor]="menu" style="cursor: pointer">more_horiz</mat-icon>
+                            <mat-menu #menu="matMenu" xPosition="before">
+                                <button mat-menu-item (click)="EditDialog(element.roleId)">
+                                    <mat-icon>edit</mat-icon> Edit
+                                </button>
+        
+                                <button mat-menu-item (click)="confirmBox(element.roleId)">
+                                    <mat-icon>delete_forever</mat-icon> Delete
+                                </button>
+        
+                            </mat-menu>
+                        </mat-cell>
+                    </ng-container>
+        
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        
+                </mat-table>
+                <!-- <mat-divider></mat-divider> -->
+               
+            </div>
+            <mat-paginator class="" showFirstLastButtons #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15, 20]"></mat-paginator>
+
+        </div>
+
+
+    </mat-card>
+
+   
+</div>

@@ -1,0 +1,14 @@
+package com.ess.daoQuery;
+
+public interface PermissionQuery {
+	
+	
+	public static final String CREATE_PERMISSION = "INSERT INTO PERMISSIONS (MODULE_NAME, CONTROLLER_NAME, ACTION_NAME) VALUES ( ?, ?, ?) ";
+
+	public static final String UPDATE_PERMISSION = "UPDATE PERMISSIONS SET MODULE_NAME = ?, CONTROLLER_NAME = ?, ACTION_NAME = ? WHERE  ID = ? ";
+
+	public static final String PERMISSION_LIST_ALL = "SELECT ID,MODULE_NAME,CONTROLLER_NAME,ACTION_NAME FROM PERMISSIONS ORDER BY ID;";
+
+	public static final String DELETE_PERMISSION = "DELETE FROM PERMISSIONS WHERE ID = ?";
+
+}

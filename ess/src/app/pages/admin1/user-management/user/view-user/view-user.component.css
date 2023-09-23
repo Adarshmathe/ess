@@ -1,0 +1,20 @@
+
+.s{
+margin-top: 44px !important;
+}
+.mat-column-id {
+max-width: 30% !important;
+}
+.mat-column-roleName {
+max-width: 30% !important;
+}
+.mat-column-status{
+max-width: 30% !important;
+}
+
+.mat-column-CreatedOn{
+max-width: 20% !important;
+}
+.mat-column-projectGear{
+max-width: 30% !important;
+}

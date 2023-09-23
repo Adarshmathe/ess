@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <mat-card class="mt-3">
+
+        <!-- <p>{{role.value | json}}</p> -->
+
+        <h2 class="headertitle">Upload Documents</h2>
+        <div class="body s">
+            <!-- <form [formGroup]="ITUpload" (ngSubmit)="Submit()">
+                <div class="row">
+                    <label for="staticEmail"  class="col-md-2 col-form-label">Choose Files :</label>
+                    <div class="col-md-3 col-form-label">
+
+                        <input type="file"  accept="image/png,image/jpeg,application/pdf" formControlName="file" (change)="onselectFile($event)">
+
+                    </div>
+                </div>
+             
+                    <div  align="end" >
+                        <button type="submit" [disabled]="!ITUpload.valid" class="btn btn-primary" >Upload</button>
+                    </div>
+            
+            </form> -->
+            <div *ngFor="let progressInfo of progressInfos" class="mb-2">
+                <span>{{ progressInfo.fileName }}</span>
+                <div class="progress">
+                  <div
+                    class="progress-bar progress-bar-info progress-bar-striped"
+                    role="progressbar"
+                    attr.aria-valuenow="{{ progressInfo.value }}"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    [ngStyle]="{ width: progressInfo.value + '%' }"
+                  >
+                    {{ progressInfo.value }}%
+                  </div>
+                </div>
+              </div>
+              
+              <label class="btn btn-default">
+                <input type="file" multiple (change)="selectFiles($event)" />
+              </label>
+              
+              <button
+                class="btn btn-success"
+                [disabled]="!selectedFiles"
+                (click)="uploadFiles()"
+              >
+                Upload
+              </button>
+              
+              <div class="alert alert-light" role="alert">{{ message }}</div>
+              
+              <div class="card">
+                <div class="card-header">List of Files</div>
+                <ul
+                  class="list-group list-group-flush"
+                  *ngFor="let file of fileName"
+                >
+                  <li class="list-group-item">
+                    <a target="_blank" href="{{fileLink + file}}">{{ file }}</a>
+                  </li>
+                </ul>
+
+                <ul
+                  class="list-group list-group-flush"
+                  *ngIf="fileName.length == 0"
+                >
+                  <li class="list-group-item">
+                    <a>List Not Found</a>
+                  </li>
+                </ul>
+              </div>
+        </div>
+    </mat-card>
+</div>

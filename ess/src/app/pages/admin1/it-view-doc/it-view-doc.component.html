@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <mat-card class="mt-3">
+
+        <!-- <p>{{role.value | json}}</p> -->
+
+        <h2 class="headertitle">View Documents</h2>
+        <div class="body">              
+              <div class="card">
+                <div class="card-header">List of Files</div>
+                <ul
+                  class="list-group list-group-flush"
+                  *ngFor="let file of fileName"
+                >
+                  <li class="list-group-item">
+                    <a target="_blank" href="{{fileLink + file}}">{{ file }}</a>
+                  </li>
+                </ul>
+
+                <ul
+                  class="list-group list-group-flush"
+                  *ngIf="fileName.length == 0"
+                >
+                  <li class="list-group-item">
+                    <a>List Not Found</a>
+                  </li>
+                </ul>
+              </div>
+        </div>
+    </mat-card>
+</div>

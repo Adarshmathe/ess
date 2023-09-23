@@ -1,0 +1,14 @@
+<div class="body">
+  <h1 mat-dialog-title>
+    {{title}}
+  </h1>
+  
+  <div mat-dialog-content>
+    <p>{{message}}</p>
+  </div>
+  
+  <div mat-dialog-actions align="end">
+    <button [mat-dialog-close]="'No'" mat-button >No</button>
+    <button [mat-dialog-close]="'Yes'" mat-raised-button color="primary">Yes</button>
+  </div>
+</div>

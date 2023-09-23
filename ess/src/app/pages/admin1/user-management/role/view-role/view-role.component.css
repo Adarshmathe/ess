@@ -1,0 +1,87 @@
+
+.s{
+margin-top: 44px !important;
+}
+
+
+/* table design
+.demo-table {
+width: 100% !important;
+}
+.example-container {
+overflow-x: auto !important;
+ width: 100% !important;
+}
+
+mat-header-row {
+height: 40px;
+font-weight: 500;
+font-size: 14px;
+line-height: 24px;
+align-items: center;
+letter-spacing: 0.1px;
+color: #5a5a5a;
+min-height: 45px !important;
+background-color: #2196F3;
+}
+mat-form-field {
+width: 100% !important;
+text-align: center !important;
+
+}
+
+.mat-row {
+height: 48px;
+left: 0px;
+top: 50px;
+border-radius: 0px;
+border-left: solid 4px white;
+}
+.mat-row:hover {
+background-color: #9eddff;
+border-left: solid 4px #40C4FF;
+}
+.mat-menu-item:hover {
+background-color: #40C4FF;
+}
+.mat-cell,
+.mat-header-cell {
+  word-wrap: initial;
+  display: table-cell;
+  padding: 10px 25px;
+  line-break: unset;
+  width: 100% !important;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-size: 14px;
+  min-height: 28px;
+
+}
+
+.demo-table {
+background-color: aliceblue;
+}
+.footer {
+background-color: aliceblue;
+}
+
+.mat-row,
+.mat-header-row {
+  display: table-row;
+} */
+.mat-column-id {
+max-width: 30% !important;
+}
+.mat-column-roleName {
+max-width: 30% !important;
+}
+.mat-column-status{
+max-width: 30% !important;
+}
+
+.mat-column-CreatedOn{
+max-width: 20% !important;
+}
+.mat-column-projectGear{
+max-width: 30% !important;
+}

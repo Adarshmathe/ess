@@ -1,0 +1,15 @@
+<div class="form-box">
+    <div class="header-text">
+        Login Form
+    </div>
+    <form (ngSubmit)="formsubmit()">
+        <div class="form-group mb-3">
+            <input id="inputEmail" name="userName" [(ngModel)]="loginData.userName"  placeholder="Email address" required>
+        </div>
+        <div class="form-group mb-3">
+            <input id="inputPassword" name="password" type="password" [(ngModel)]="loginData.password" placeholder="Password" required >
+        </div>
+        <button type="submit">Login</button>
+        
+    </form>  
+</div>

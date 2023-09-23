@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <mat-card class="mt-3">
+
+        <!-- <p>{{user.value | json}}</p> -->
+
+        <h2 class="headertitle">Create Permission</h2>
+        <div class="body">
+            <form [formGroup]="permission" (ngSubmit)="Submit()">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Module Name :</label>
+                        <input type="text" formControlName="moduleName" class="form-control"  />
+                      </div>
+                      <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Controller Name :</label>
+                        <input type="text" formControlName="controllerName" class="form-control"  />
+                      </div>
+                      <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Action Name :</label>
+                        <input type="text" formControlName="actionName" class="form-control" />
+                      </div>
+                </div>
+               
+                    <div  align="end" class="mt-1" >
+                        <button type="submit" [disabled]="!permission.valid" class="btn btn-primary" >save</button>
+                    </div>
+            
+            </form>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,20 @@
+.s {
+  margin-top: 44px !important;
+}
+
+.mat-column-id {
+  max-width: 30% !important;
+}
+.mat-column-moduleName {
+  max-width: 30% !important;
+}
+.mat-column-controllerName {
+  max-width: 30% !important;
+}
+
+.mat-column-actionName {
+  max-width: 20% !important;
+}
+.mat-column-projectGear {
+  max-width: 30% !important;
+}

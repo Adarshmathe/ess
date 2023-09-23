@@ -1,0 +1,163 @@
+<div class="container-fluid">
+    <mat-card class="mt-3">
+
+        <!-- <p>{{role.value | json}}</p> -->
+
+        <h2 class="headertitle">Profile Information</h2>
+        <div class="s">
+            <div class="container emp-profile">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="profile-img">
+                                <img [src]="url"
+                                    alt="" />
+                                    <!-- <div class="m-5"></div> -->
+                                <div class="file btn btn-lg btn-primary">
+                                    Change Photo
+                                    <input type="file" name="file" (change)="onselectFile($event)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="profile-head">
+                                <h1>
+                                   {{userdata.name}}
+                                </h1>
+                                <h3>
+                                    {{userdata.designation}}
+                                </h3>
+                                <p class="proile-rating"><span>{{"Department : "  +userdata.department}}</span></p>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link" [class]="tab1Class" id="home-tab" data-toggle="tab" (click)="next('tab1')"
+                                            role="tab" aria-controls="home" aria-selected="true">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" [class]="tab2Class" id="profile-tab" data-toggle="tab" (click)="next('tab2')"
+                                            role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <!-- <div class="profile-work">
+                                <p>WORK LINK</p>
+                                <a href="">Website Link</a><br />
+                                <a href="">Bootsnipp Profile</a><br />
+                                <a href="">Bootply Profile</a>
+                                <p>SKILLS</p>
+                                <a href="">Web Designer</a><br />
+                                <a href="">Web Developer</a><br />
+                                <a href="">WordPress</a><br />
+                                <a href="">WooCommerce</a><br />
+                                <a href="">PHP, .Net</a><br />
+                            </div> -->
+                        </div>
+                        <div class="col-md-8">
+                            <div class="tab-content profile-tab" id="myTabContent" >
+                                <div  id="home" *ngIf="tab1Active" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>ERP Id</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{userdata.erp}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{userdata.name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{userdata.email}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Mobile</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{userdata.mobile}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Date Of Birth</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{userdata.doj | date}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="profile" *ngIf="tab2Active" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Designation</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{userdata.designation}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Department</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{userdata.department}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Manager</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{userdata.manager_name==null? "No Manager Assigned":userdata.manager_name}}</p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row">
+                                        <div class="col-md-6">
+                                            <label>English Level</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Expert</p>
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Availability</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>6 months</p>
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Your Bio</label><br />
+                                            <p>Your detail description</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </mat-card>
+</div>

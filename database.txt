@@ -1,0 +1,68 @@
+create database ess;
+
+create table users(
+id serial primary key,
+  name varchar(255) DEFAULT NULL,
+  email varchar(255) DEFAULT NULL,
+  mobile varchar(255) DEFAULT NULL,
+  erp varchar(255) DEFAULT NULL,
+  designation varchar(255) DEFAULT NULL,
+  department varchar(255) DEFAULT NULL,
+  doj date DEFAULT NULL,
+  manager_id int DEFAULT NULL,
+  password varchar(255) DEFAULT NULL,
+  image varchar(255) DEFAULT NULL,
+  enabled boolean NOT NULL,
+  created_on date DEFAULT NULL,		
+	CONSTRAINT fk_manager
+      FOREIGN KEY(manager_id) 
+	  REFERENCES users(id)
+	  ON DELETE CASCADE
+	
+);
+
+create table roles(
+role_id serial primary key,
+role_name varchar(255) NOT NULL,	
+status boolean NOT NULL,
+createdOn Date
+);
+
+create table userrole(
+id serial,
+user_id int,
+	role_id int,
+	 CONSTRAINT fk_user
+      FOREIGN KEY(user_id) 
+	  REFERENCES users(id)
+	  ON DELETE CASCADE,
+	CONSTRAINT fk_role
+	
+      FOREIGN KEY(role_id) 
+	  REFERENCES roles(role_id)
+	  ON DELETE CASCADE
+);
+
+
+create table permissions(
+id serial primary key,
+MODULE_NAME varchar(255) NOT NULL,	
+CONTROLLER_NAME varchar(255) NOT NULL,	
+ACTION_NAME varchar(255) NOT NULL	
+);
+
+create table role_permissions(
+id serial,
+per_id int,
+	role_id int,
+	 CONSTRAINT fk_permission
+      FOREIGN KEY(per_id) 
+	  REFERENCES permissions(id)
+	  ON DELETE CASCADE,
+	CONSTRAINT fk_role
+	
+      FOREIGN KEY(role_id) 
+	  REFERENCES roles(role_id)
+	  ON DELETE CASCADE	
+
+);

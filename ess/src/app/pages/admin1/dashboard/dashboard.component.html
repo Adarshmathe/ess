@@ -1,0 +1,69 @@
+<div class="container-fluid bootstrap snippet">
+	<div class="row">
+		<div class="col-lg-3 col-sm-6 mt-4" *ngIf="menuPermissionClass.isProfilePermission">
+			<div class="circle-tile ">
+				<!-- <a href="#">
+					<div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div>
+				</a> -->
+				<div class="circle-tile-content green" [routerLink]="['/home','profile']">
+					<div class="circle-tile-description text-faded"> Profile </div>
+					<div class="circle-tile-number text-faded ">{{usercount}}</div>
+					<a class="circle-tile-footer" [routerLink]="['/home','profile']">More Info <i class="fa fa-chevron-circle-right"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-3 col-sm-6 mt-4" *ngIf="menuPermissionClass.isUserManagementPermission">
+			<div class="circle-tile ">
+				<!-- <a href="#">
+					<div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div>
+				</a> -->
+				<div class="circle-tile-content green" [routerLink]="['/home','usermanagement']">
+					<div class="circle-tile-description text-faded"> User Management </div>
+					<div class="circle-tile-number text-faded ">{{usercount}}</div>
+					<a class="circle-tile-footer" [routerLink]="['/home','usermanagement']">More Info <i class="fa fa-chevron-circle-right"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-sm-6 mt-4" *ngIf="menuPermissionClass.isCircularPermission">
+			<div class="circle-tile ">
+				<!-- <a href="#">
+					<div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div>
+				</a> -->
+				<div class="circle-tile-content green" [routerLink]="['/home','circular']">
+					<div class="circle-tile-description text-faded"> Circular </div>
+					<div class="circle-tile-number text-faded ">{{usercount}}</div>
+					<a class="circle-tile-footer" [routerLink]="['/home','circular']">More Info <i class="fa fa-chevron-circle-right"></i></a>
+				</div>
+			</div>
+		</div>
+    <!-- <div class="col-lg-3 col-sm-6">
+			<div class="circle-tile ">
+				<a href="#">
+					<div class="circle-tile-heading green"><i class="fa fa-users fa-fw fa-3x"></i></div>
+				</a>
+				<div class="circle-tile-content green">
+					<div class="circle-tile-description text-faded"> Users Online </div>
+					<div class="circle-tile-number text-faded ">10</div>
+					<a class="circle-tile-footer" href="#">More Info<i class="fa fa-chevron-circle-right"></i></a>
+				</div>
+			</div>
+		</div>
+    <div class="col-lg-3 col-sm-6">
+			<div class="circle-tile ">
+				<a href="#">
+					<div class="circle-tile-heading purple"><i class="fa fa-users fa-fw fa-3x"></i></div>
+				</a>
+				<div class="circle-tile-content purple">
+					<div class="circle-tile-description text-faded"> Users</div>
+					<div class="circle-tile-number text-faded ">265</div>
+					<a class="circle-tile-footer" href="#">More Info<i class="fa fa-chevron-circle-right"></i></a>
+				</div>
+			</div>
+		</div>
+	</div> -->
+</div>
+
+
+
+
